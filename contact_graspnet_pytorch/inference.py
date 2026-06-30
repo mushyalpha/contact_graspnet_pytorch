@@ -78,9 +78,10 @@ def inference(global_config,
         np.savez('results/predictions_{}'.format(os.path.basename(p.replace('png','npz').replace('npy','npz'))), 
                   pc_full=pc_full, pred_grasps_cam=pred_grasps_cam, scores=scores, contact_pts=contact_pts, pc_colors=pc_colors)
 
-        # Visualize results          
-        show_image(rgb, segmap)
-        visualize_grasps(pc_full, pred_grasps_cam, scores, plot_opencv_cam=True, pc_colors=pc_colors)
+        # Visualize results (disabled — visualization not needed for thesis pipeline)
+        # show_image(rgb, segmap)
+        # visualize_grasps(pc_full, pred_grasps_cam, scores, plot_opencv_cam=True, pc_colors=pc_colors)
+        print(f"Results saved: results/predictions_{os.path.basename(p.replace('png','npz').replace('npy','npz'))}")
         
     if not glob.glob(input_paths):
         print('No files found: ', input_paths)
